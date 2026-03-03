@@ -1,1 +1,232 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>netflix clone</title>
+    
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100..900;1,100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+ 
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100..900;1,100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+</head>
+  <style>
+   body{
+    font-family: Netflix Sans, Helvetica Neue, Segoe UI, Roboto, Ubuntu, sans-serif;
+    background-color: #181818;
+    margin:0;
+    
+    
+   }
+   @media(max-width:750px){
+  .subheading{
+  width:150px
+  }
+}
+   .M{
+    margin-top:30px;
+    margin-left:40px;
+  
+   }
+   .main{
+    display:grid;
+    grid-template-columns:1fr;
+  
+   }
+   
+   .heading{
+    display:flex;
+    flex-direction:row;  
+    background-color:black; 
+    margin-top:0px;
+    justify-content:space-between;
+    top:0;
+    left:0;
+    right:0;
+    align-items:center;
+    height:55px;
+    position:fixed;
+    z-index:100;
+   }
+   .right-section{
+    display:flex;
+    
+   }
+   .left-section{
+    display:flex;
+    flex-direction:row;
+  
+   }
+
+   .u-s-m{
+    color:white;
+    font-family:Roboto;
+    font-size:13px;
+    width:200px;
+   }
+   .join-btn{
+    background-color:#c5040d;
+    padding-top:10px;
+    padding-bottom:10px;
+    padding-left:45px;
+     padding-right:45px;
+    color:white;
+    font-size:14px;
+    border:none;
+    border-radius:2px;
+    margin-left:0px;
+    margin-right:6px;
+    
+    
+   }
+   .join-btn:hover{
+    background-color:red;
+    cursor:pointer;
+   }
+   .sign-in-btn{
+    height:35px;
+    width:100px;
+    color:white;
+    background-color:black;
+    border-color:white;
+    font-weight:bold;
+    font-size:15px;
+    border-style:solid;
+    border-width:1px;/* to get thin border*/
+   
+   }
+   .sign-in-btn:hover{
+   opacity:0.7;
+   background-color:rgb(153, 147, 147);
+   cursor:pointer;
+  }
+   .logo{
+    width:170px;
+    height:60px;
+    object-fit:cover;
+    object-position:center;
+   }
+   
+   .h1{
+    color:white;
+    font-size:50px;
+    font-weight:700;
+   }
+   .subheading{
+    display:flex;
+    flex:1;
+    color:white;
+    font-size:20px;
+    width:600px;
+    margin-top:-20px;
+    
+   }
+   .watch{
+    margin-top:40px;
+    color:white;
+    font-size:20px;
+   }
+   .movies-list{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    column-gap:16px;
+    margin-top:20px;
+   
+  }
+  
+ .m-name{
+   display:flex;
+   flex-direction:row;
+   justify-content:center;
+   align-items:center;
+   color:white;
+  }
+  .usm{
+    margin-right:-12px;
+  }
+.movies-list div:hover{
+  transform:scale(1.08);
+  transition:0.3s;
+  cursor:pointer;
+}
+</style>
+<body>
+
+  <div class="heading">
+    <div class="left-section">
+      <div class="netflix-logo">
+      <img class="logo" src="data:image/png;base64,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"> 
+      </div>
+    </div>
+    <div class="right-section">
+      <div class="usm">
+      <p class="u-s-m">UNLIMITED SHOWS & MOVIES</p>
+      </div>
+      <div>
+      <button class="join-btn">Join now</button>
+      </div>
+      <div>
+      <button class="sign-in-btn">Sign in</button>
+      </div>
+    </div> 
+  </div>
+  <div class="M">
+    <div class="main">
+      <div class="Movies">
+        <h1 class="h1">Movies</h1>
+      </div>
+      <div class="subheading">
+      Movies move us like nothing else can, whether they’re scary, funny, dramatic, romantic or anywhere in-between. So many titles, so much to experience.
+      </div>
+    </div>
+    <div class="grid-movies">
+      <div class="watch">
+        Your Next Watch
+      </div>
+      <div class="movies-list">
+        <div>
+          <img class="img-1" src="https://occ-0-1492-3662.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABfcckv_zpnd3jt26MvYUkUsbPe7LctAvt2NJoFiUmVeRNyWF0MjsKyN8vKueU5qHtN_MOY-w4K1RaPih0SP2DCUiAYB546paVGpwTkfV3DDpfwIqgYsyDo-Rj2Rkt9VpgiSwRcY8sI6enJflknDOxWgLneizcu5XZSq51FW36FNkQ9NAQzj-oBcrs3DJ7M01pbOsmRXMGhP54PNp34WpF01_h0EStvR6t07g83w.jpg?r=9c5">
+          <div class="m-name">Idli kadai</div>
+        </div>
+        <div>
+          <img class="img-1" src="https://occ-0-1492-3662.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABU0YwmO2xzvHlRec5oREA9sGS-4iQpOI38Ted1IfD56BtKU573xRoG2f5b8K6Iy2wmXFmirC1DQxoxd0KQF4LRl6-IGACm8AovsG2_5vf2ySPHY7rb-BrFyS7EWN5wnlVUbUtxZXt0qWqIqQ9Cy86lWyHBzSclfmYk7C_V9JABsIuGpFFgQiKGrdrxxbAzy-WT68CS1bmtUqLAK0pi9lcFZGEk150jXMlHn0x70.jpg?r=339">
+          <div class="m-name">War 2</div>
+        </div>
+        <div>
+          <img class="img-1" src="https://occ-0-1492-3662.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABeGWShq4R2XdjUKcLMZpQt1-0sydulOax--wjXJgtUhkFCmDJD2udrFnPrM__7Z7ZfnAUAenVdFDYyN4ruDeTP51P1yGijq-dnQ.jpg?r=c8a">
+          <div class="m-name">Karate Kid:Legend</div>
+        </div>
+        <div>
+          <img class="img-1" src="https://occ-0-1492-3662.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABZpqg9F-AidIOm5rpoMAmLl_WyiRGkegoq9qAEau3X2j1CFwH2XWimlErZ1C-c3RdE636L1-NeooSdk_gHrkcuGOSuWAdHc9nHTHoqy-cu1MvSyTdmJE_IjjRUT10JNu7O1ZbuSlPjL1cTbFJqlchv2n-Prpt6EHy4M.jpg?r=ce0">
+          <div class="m-name">Mahavatar Narsimha</div>
+        </div> 
+      </div> 
+      <div class="watch">
+        Hollywood Movies
+      </div>
+      <div class="movies-list">
+        <div>
+          <img class="img-1" src="https://occ-0-1492-3662.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABTTwj8o3b4tATZV85dCpFg3IALt8R1UGHBALXZKNlV1lRUzQWb2aI9tLLU3veQkIvXEjZc-5MexjV5eQY8rNYSknEJUHj8YyMIqDYk9AOvMnb1E45YBm5y_glF1naccLtVatEbdlGHcWUqTp6jztavbKUuSTWb8bdF0ZoMF8C_AbRtbGAy97sD_nW4zlelcfXj6GQQt8a83ydsf5AB6vOT41vAEDWvTUSjMRAev2KYYpg5AlTM1Uq8DikYeBbgYMgcI.jpg?r=c06">
+          <div class="m-name">Frankenstein</div>
+        </div>
+        <div>
+          <img class="img-1" src="https://occ-0-1492-3662.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABcSgv0LeZ0fkOUz3vTnkqIwdUatNzXIWjIWSGYi3LLEqG1UkI8w2wDDK534g64GWTgikgJIjPDIzRgZtfEGTckehMjYAZIn7OYQ.jpg?r=bd8">
+          <div class="m-name">Venom:The Last 
+            Dance
+          </div>
+        </div>
+        <div>
+          <img class="img-1" src="https://occ-0-1492-3662.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABfOlPQrgVaeKkF0c-X-Int5-sQo7NSSIwIAzFtCgUhsX9ihhjWnSww_wg8y-GKQJQfA2WgUKSe8Sw45ERn3VlFNIymsW27g0a0H-XReiR9vhN7Ra2XwoBGgeHt96n7LCjnekEClen5hoswa3rdj-z3ONXo67U0VbOlsb9bSokoCw.jpg?r=af7">
+          <div class="m-name">A Quiet Place:Day One</div>
+        </div>
+        <div>
+          <img class="img-1" src="https://occ-0-1492-3662.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABQgzUo4mJdyWbiLnlpQKPL6s7iF1T_jqYGGc4wHxkbqDNeMIFIesj8PP0LSVbEWUp94kC0f-1ojD18JDyzinEN-qq6CwtRTXHwU.jpg?r=88e">
+          <div class="m-name">Jumanji:The Next Level</div>
+        </div> 
+      </div> 
+    </div>
+  </div>
+  
+  </body>
+</html>
